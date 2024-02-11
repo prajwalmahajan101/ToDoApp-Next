@@ -1,5 +1,4 @@
 version: '3.8'
-
 services:
   postgres:
     container_name: todo_app_db
@@ -24,11 +23,11 @@ services:
       postgres:
         condition: service_started
   fe:
-    build: .
+    image: 'prajwalmahajan101/todo_fe:latest'
     ports:
       - '3000:3000'
 volumes:
-    postgres:
+  postgres:
 networks:
   todo_app_network:
     driver: bridge
